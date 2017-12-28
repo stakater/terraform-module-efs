@@ -1,11 +1,15 @@
+provider "aws" {
+  region = "eu-west-1"
+}
+
+data "aws_availability_zones" azs { }
+
 module "efs" {
   source = "github.com/stakater/blueprint-storage-aws.git//modules/efs/file-system?ref=v0.1.0"
   name = "${var.stack_name}"
   vpc_id = "${var.vpc_id}"
   vpc_cidr = "${var.vpc_cidr}"
 }
-
-data "aws_availability_zones" azs { }
 
 module "efs-mount-targets" {
   source = "github.com/stakater/blueprint-storage-aws.git//modules/efs/mount-target?ref=v0.1.0"
