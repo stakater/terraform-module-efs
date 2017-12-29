@@ -1,0 +1,9 @@
+---
+###########################
+# Setup EFS
+###########################
+
+- hosts: localhost
+  connection: local
+  roles:
+    - terraform-plan
