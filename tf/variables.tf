@@ -1,6 +1,10 @@
 variable "stack_name" {
 }
 
+variable "region" {
+  default = ""
+}
+
 variable "vpc_id" {
 }
 
