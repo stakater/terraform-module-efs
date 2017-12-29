@@ -10,7 +10,7 @@
     mkdir -p build/
     cp -r tf/* build/
     cd build/
-    VARS_FILE="vars.list"
+    VARS_FILE="tfvars.sh"
     if [ -f $VARS_FILE ]; then
       echo "File $VARS_FILE exists."
       . ./$VARS_FILE
