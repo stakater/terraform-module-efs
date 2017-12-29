@@ -6,7 +6,6 @@
 
 - name: Create the physical EFS
   shell: |
-    # TODO:
     cd ../
     mkdir -p build/
     cp -r tf/* build/
@@ -16,15 +15,8 @@
       echo "File $VARS_FILE exists."
       . ./$VARS_FILE
       terraform init
-      terraform plan > plan.txt
-      terraform show > show.txt
-      # terraform apply > apply.txt
-      # terraform output > output.txt
+      terraform apply > apply.txt
     else
       echo "File $VARS_FILE does not exist."
       exit 255
     fi
-
-- name: Push build and vars.sh
-  shell: |
-    # TODO:
