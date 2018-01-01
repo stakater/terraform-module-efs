@@ -2,6 +2,14 @@ provider "aws" {
   region = "${var.region}"
 }
 
+terraform {
+  backend "s3" {
+    bucket = "${var.s3_backend_bucket}"
+    key    = "efs/terraform.tfstate"
+    region = "${var.region}"
+  }
+}
+
 data "aws_availability_zones" azs { }
 
 module "efs" {

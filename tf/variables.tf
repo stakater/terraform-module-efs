@@ -5,6 +5,10 @@ variable "region" {
   default = ""
 }
 
+variable "s3_backend_bucket" {
+  default = ""
+}
+
 variable "vpc_id" {
 }
 
