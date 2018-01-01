@@ -1,10 +1,10 @@
-variable "stack_name" {
-}
-
-variable "region" {
+variable "stack_name_prefix" {
 }
 
 variable "environment" {
+}
+
+variable "region" {
 }
 
 variable "vpc_id" {
