@@ -4,6 +4,10 @@ variable "stack_name_prefix" {
 variable "environment" {
 }
 
+variable "state_store" {
+  description = "<account_id>-<stack_name_prefix>-<environment>-state-store"
+}
+
 variable "region" {
 }
 
