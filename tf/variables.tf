@@ -2,11 +2,9 @@ variable "stack_name" {
 }
 
 variable "region" {
-  default = ""
 }
 
-variable "s3_backend_bucket" {
-  default = ""
+variable "environment" {
 }
 
 variable "vpc_id" {

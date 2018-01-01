@@ -2,15 +2,17 @@ provider "aws" {
   region = "${var.region}"
 }
 
+data "aws_availability_zones" azs { }
+
+data "aws_caller_identity" "current" {}
+
 terraform {
   backend "s3" {
-    bucket = "${var.s3_backend_bucket}"
+    bucket = "${data.aws_caller_identity.current.account_id}-${var.environment}-state-store"
     key    = "terraform_states/efs/terraform.tfstate"
     region = "${var.region}"
   }
 }
-
-data "aws_availability_zones" azs { }
 
 module "efs" {
   source = "github.com/stakater/blueprint-storage-aws.git//modules/efs/file-system?ref=v0.1.0"
