@@ -4,13 +4,9 @@ provider "aws" {
 
 data "aws_availability_zones" azs { }
 
-data "aws_caller_identity" "current" {}
-
 terraform {
   backend "s3" {
-    bucket = "${data.aws_caller_identity.current.account_id}-${var.stack_name_prefix}-${var.environment}-state-store"
     key    = "terraform_states/efs/terraform.tfstate"
-    region = "${var.region}"
   }
 }
 
