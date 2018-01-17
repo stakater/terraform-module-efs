@@ -14,8 +14,8 @@
     if [ -f $VARS_FILE ]; then
       echo "File $VARS_FILE exists."
       . ./$VARS_FILE
-      terraform init -reconfigure -backend=true -get=true -input=false
-      -backend-config="bucket=449074299682-${TF_VAR_stack_name_prefix}-${TF_VAR_environment}-state-store"
+      terraform init -reconfigure -backend=true -get=true -input=false \
+      -backend-config="bucket=449074299682-${TF_VAR_stack_name_prefix}-${TF_VAR_environment}-state-store" \
       -backend-config="region=${TF_VAR_region}"
 
       terraform plan > plan.txt
