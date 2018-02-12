@@ -11,12 +11,13 @@
     cp -r tf/* build/
     cd build/
     VARS_FILE="tfvars.sh"
+    SECRETS_FILE="secrets.sh"
     if [ -f $VARS_FILE ]; then
       echo "File $VARS_FILE exists."
       . ./$VARS_FILE
-      accountid=`aws sts get-caller-identity --output text --query 'Account'`
+      . ./$SECRETS_FILE
       terraform init -reconfigure -backend=true -get=true -input=false \
-      -backend-config="bucket=${accountid}-${TF_VAR_stack_name_prefix}-${TF_VAR_environment}-state-store" \
+      -backend-config="bucket=${TF_VAR_s3_bucket}" \
       -backend-config="region=${TF_VAR_region}"
 
       terraform plan > plan.txt
