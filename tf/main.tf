@@ -11,7 +11,7 @@ terraform {
 }
 
 module "efs" {
-  source = "github.com/stakater/blueprint-storage-aws.git//modules/efs/file-system?ref=v0.1.0"
+  source = "github.com/stakater/blueprint-storage-aws.git//modules/efs/file-system?ref=1.0.0"
   name = "${var.stack_name_prefix}-${var.environment}"
   vpc_id = "${var.vpc_id}"
   vpc_cidr = "${var.vpc_cidr}"
