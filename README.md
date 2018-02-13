@@ -25,7 +25,11 @@ This project can be run from any type of host with no platform restrictions. How
 
 #### Running
 
-0. You need to install ansible and terraform first
+0. You need to install ansible and terraform first, or use this docker image
+```
+$ docker run -it -v ${PWD}:/tmp stakater/pipeline-tools:1.0 sh
+$ cd /tmp
+```
 
 1. Run these,
 
@@ -41,11 +45,13 @@ _Note: S3 backend bucket needs to be created first._
 ```
 export TF_VAR_stack_name_prefix="stakater"
 export TF_VAR_environment="dev"
-export TF_VAR_s3_bucket="449074299682-aurora-dev-state-store"
-export TF_VAR_vpc_id="vpc-618a7307"
+export TF_VAR_vpc_id="vpc-4065a326"                          
 export TF_VAR_vpc_cidr="10.241.0.0/16"
-export TF_VAR_private_subnet_ids="subnet-eafee68d,subnet-65a44b2d,subnet-0a735751"
-export TF_VAR_region="eu-west-1"
+export TF_VAR_private_subnet_ids="subnet-a051b7c6,subnet-ae15e0e6,subnet-a20e2cf
+export TF_VAR_region="eu-west-1"                                                
+export TF_VAR_s3_bucket="449074299682-stakater-dev-state-store"                 
+                                                                                
+export action="configure.yaml create.yaml"
 ```
 
 3. Run `ansible-playbook configure.yaml create.yaml`
