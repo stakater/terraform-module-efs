@@ -50,8 +50,6 @@ export TF_VAR_vpc_cidr="10.241.0.0/16"
 export TF_VAR_private_subnet_ids="subnet-a051b7c6,subnet-ae15e0e6,subnet-a20e2cf
 export TF_VAR_region="eu-west-1"                                                
 export TF_VAR_s3_bucket="449074299682-stakater-dev-state-store"                 
-                                                                                
-export action="configure.yaml create.yaml"
 ```
 
 3. Run `ansible-playbook configure.yaml create.yaml`
